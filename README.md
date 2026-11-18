@@ -1,3 +1,5 @@
+<img src="icon.png" width="96" alt="VoxWrist icon">
+
 # VoxWrist
 
 Your Android phone's voice notes, on your Zepp OS watch.
