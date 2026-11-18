@@ -22,6 +22,7 @@
   .small { color:var(--muted); font-size:14px; text-align:center; margin:8px 0 24px; }
   .card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:16px 18px; margin:14px 0; }
   h2 { font-size:19px; margin:0 0 8px; }
+  h3 { font-size:16px; margin:14px 0 4px; }
   ol { margin:0; padding-left:22px; } li { margin:6px 0; }
   .note { background:var(--warn-bg); color:var(--warn); border-radius:12px; padding:10px 14px; font-size:15px; margin-top:10px; }
   footer { color:var(--muted); font-size:14px; margin-top:28px; }
@@ -46,8 +47,19 @@
   <section class="card">
     <h2 data-t="installH"></h2>
     <ol><li data-t="i1"></li><li data-t="i2"></li><li data-t="i3"></li><li data-t="i4"></li></ol>
-    <div class="note" data-t="blocked"></div>
     <div class="note" data-t="restricted"></div>
+  </section>
+
+  <section class="card" id="blocked">
+    <h2 data-t="blockH"></h2>
+    <p data-t="blockWhy" style="margin:0 0 8px"></p>
+    <h3 data-t="ppH"></h3>
+    <ol><li data-t="pp1"></li><li data-t="pp2"></li><li data-t="pp3"></li></ol>
+    <h3 data-t="ppOffH"></h3>
+    <ol><li data-t="off1"></li><li data-t="off2"></li><li data-t="off3"></li><li data-t="off4"></li></ol>
+    <h3 data-t="samH"></h3>
+    <p data-t="sam" style="margin:0"></p>
+    <p class="small" style="text-align:left;margin:12px 0 0"><span data-t="sig"></span><br><code style="word-break:break-all">5F:E4:32:DC:81:50:58:EA:BC:CD:B1:83:47:E1:79:20:7B:02:8A:CC:46:39:3C:85:21:8D:F5:F1:04:C2:C1:E5</code></p>
   </section>
 
   <section class="card"><h2 data-t="updH"></h2><p data-t="upd" style="margin:0"></p></section>
@@ -70,7 +82,20 @@ const T = {
     i2: "If Android asks, allow your browser to install apps, then tap Install.",
     i3: "Open VoxWrist and follow the setup: choose the voice-notes folder, allow sender names and turn on “Connect watch”.",
     i4: "On the watch, install VoxWrist from the Zepp app’s store and enter the 6-digit code the phone shows.",
-    blocked: "If a Samsung phone says the app can’t be installed for security reasons, Auto Blocker is on: open Settings → Security and privacy → Auto Blocker, turn it off, install VoxWrist and turn it back on. If Google Play Protect warns about an unknown app, tap “More details” → “Install anyway”.",
+    blockH: "If Android blocks the install",
+    blockWhy: "VoxWrist is not on Google Play, so Android may warn you or stop the install. It is safe to continue: the app only reads your voice notes and sends nothing to the internet.",
+    ppH: "“Blocked by Play Protect” or “Unsafe app”",
+    pp1: "Tap “More details” (or the small arrow) in the warning.",
+    pp2: "Tap “Install anyway”.",
+    pp3: "If it offers to “Scan app”, let it scan, then tap “Install”.",
+    ppOffH: "If there is no “Install anyway” button",
+    off1: "Open the Play Store, tap your profile picture and choose “Play Protect”.",
+    off2: "Tap the gear at the top right and turn off “Scan apps with Play Protect”.",
+    off3: "Open the downloaded voxwrist.apk again and install it.",
+    off4: "Go back to Play Protect and turn scanning on again.",
+    samH: "Samsung: “blocked for security reasons”",
+    sam: "That is Auto Blocker. Open Settings → Security and privacy → Auto Blocker, turn it off, install VoxWrist and turn it back on.",
+    sig: "Genuine copies are signed with this certificate (SHA-256):",
     restricted: "If Android says “Restricted setting” when you allow sender names: open Settings → Apps → VoxWrist → ⋮ (top right) → “Allow restricted settings”, then try again.",
     updH: "Updates",
     upd: "In VoxWrist, open Settings → Check for updates. Installing a new version keeps your settings. You can also follow the releases with Obtainium.",
@@ -91,7 +116,20 @@ const T = {
     i2: "Si Android lo pide, permite que el navegador instale apps y toca Instalar.",
     i3: "Abre VoxWrist y sigue la configuración: elige la carpeta de notas de voz, permite los nombres de quien envía y activa «Conectar reloj».",
     i4: "En el reloj, instala VoxWrist desde la tienda de la app Zepp e introduce el código de 6 dígitos que muestra el móvil.",
-    blocked: "Si un móvil Samsung dice que por seguridad no se puede instalar, está activo el Bloqueador automático: abre Ajustes → Seguridad y privacidad → Bloqueador automático, desactívalo, instala VoxWrist y vuelve a activarlo. Si Google Play Protect avisa de una app desconocida, toca «Más detalles» → «Instalar de todos modos».",
+    blockH: "Si Android bloquea la instalación",
+    blockWhy: "VoxWrist no está en Google Play, así que Android puede avisarte o frenar la instalación. Puedes continuar con seguridad: la app solo lee tus notas de voz y no envía nada a internet.",
+    ppH: "«Bloqueada por Play Protect» o «App no segura»",
+    pp1: "Toca «Más detalles» (o la flechita) en el aviso.",
+    pp2: "Toca «Instalar de todos modos».",
+    pp3: "Si te ofrece «Analizar app», deja que la analice y luego toca «Instalar».",
+    ppOffH: "Si no aparece «Instalar de todos modos»",
+    off1: "Abre Play Store, toca tu foto de perfil y elige «Play Protect».",
+    off2: "Toca el engranaje de arriba a la derecha y desactiva «Analizar apps con Play Protect».",
+    off3: "Vuelve a abrir el voxwrist.apk descargado e instálalo.",
+    off4: "Vuelve a Play Protect y activa otra vez el análisis.",
+    samH: "Samsung: «bloqueada por motivos de seguridad»",
+    sam: "Es el Bloqueador automático. Abre Ajustes → Seguridad y privacidad → Bloqueador automático, desactívalo, instala VoxWrist y vuelve a activarlo.",
+    sig: "Las copias auténticas están firmadas con este certificado (SHA-256):",
     restricted: "Si Android dice «Ajuste restringido» al permitir los nombres: abre Ajustes → Aplicaciones → VoxWrist → ⋮ (arriba a la derecha) → «Permitir ajustes restringidos» y vuelve a intentarlo.",
     updH: "Actualizaciones",
     upd: "En VoxWrist, abre Ajustes → Buscar actualizaciones. Instalar una versión nueva mantiene tus ajustes. También puedes seguir las versiones con Obtainium.",
@@ -112,7 +150,20 @@ const T = {
     i2: "Si Android le demande, autorisez le navigateur à installer des apps, puis touchez Installer.",
     i3: "Ouvrez VoxWrist et suivez la configuration : choisissez le dossier des messages vocaux, autorisez les noms des expéditeurs et activez « Connecter la montre ».",
     i4: "Sur la montre, installez VoxWrist depuis la boutique de l’app Zepp et saisissez le code à 6 chiffres affiché sur le téléphone.",
-    blocked: "Si un téléphone Samsung indique que l’installation est bloquée pour des raisons de sécurité, le Bloqueur automatique est activé : ouvrez Paramètres → Sécurité et confidentialité → Bloqueur automatique, désactivez-le, installez VoxWrist puis réactivez-le. Si Google Play Protect signale une app inconnue, touchez « Plus de détails » → « Installer quand même ».",
+    blockH: "Si Android bloque l’installation",
+    blockWhy: "VoxWrist n’est pas sur Google Play : Android peut afficher un avertissement ou bloquer l’installation. Vous pouvez continuer sans risque : l’app lit seulement vos messages vocaux et n’envoie rien sur Internet.",
+    ppH: "« Bloquée par Play Protect » ou « App dangereuse »",
+    pp1: "Touchez « Plus de détails » (ou la petite flèche) dans l’avertissement.",
+    pp2: "Touchez « Installer quand même ».",
+    pp3: "S’il propose « Analyser l’app », laissez-le faire puis touchez « Installer ».",
+    ppOffH: "S’il n’y a pas de bouton « Installer quand même »",
+    off1: "Ouvrez le Play Store, touchez votre photo de profil et choisissez « Play Protect ».",
+    off2: "Touchez la roue dentée en haut à droite et désactivez « Analyser les applications avec Play Protect ».",
+    off3: "Rouvrez le fichier voxwrist.apk téléchargé et installez-le.",
+    off4: "Revenez à Play Protect et réactivez l’analyse.",
+    samH: "Samsung : « bloquée pour des raisons de sécurité »",
+    sam: "C’est le Bloqueur automatique. Ouvrez Paramètres → Sécurité et confidentialité → Bloqueur automatique, désactivez-le, installez VoxWrist puis réactivez-le.",
+    sig: "Les copies authentiques sont signées avec ce certificat (SHA-256) :",
     restricted: "Si Android affiche « Paramètre restreint » : ouvrez Paramètres → Applications → VoxWrist → ⋮ (en haut à droite) → « Autoriser les paramètres restreints », puis réessayez.",
     updH: "Mises à jour",
     upd: "Dans VoxWrist, ouvrez Réglages → Rechercher des mises à jour. Une nouvelle version garde vos réglages. Vous pouvez aussi suivre les versions avec Obtainium.",
@@ -133,7 +184,20 @@ const T = {
     i2: "Se o Android pedir, permita que o navegador instale apps e toque em Instalar.",
     i3: "Abra o VoxWrist e siga a configuração: escolha a pasta das mensagens de voz, permita os nomes de quem envia e ative «Ligar relógio».",
     i4: "No relógio, instale o VoxWrist pela loja da app Zepp e introduza o código de 6 dígitos que o telemóvel mostra.",
-    blocked: "Se um telemóvel Samsung disser que a instalação foi bloqueada por segurança, o Bloqueador automático está ativo: abra Definições → Segurança e privacidade → Bloqueador automático, desative-o, instale o VoxWrist e volte a ativá-lo. Se o Google Play Protect avisar de uma app desconhecida, toque em «Mais detalhes» → «Instalar mesmo assim».",
+    blockH: "Se o Android bloquear a instalação",
+    blockWhy: "O VoxWrist não está no Google Play, por isso o Android pode avisar ou travar a instalação. Pode continuar em segurança: a app só lê as suas mensagens de voz e não envia nada para a Internet.",
+    ppH: "«Bloqueada pelo Play Protect» ou «App não segura»",
+    pp1: "Toque em «Mais detalhes» (ou na pequena seta) no aviso.",
+    pp2: "Toque em «Instalar mesmo assim».",
+    pp3: "Se oferecer «Analisar app», deixe analisar e depois toque em «Instalar».",
+    ppOffH: "Se não aparecer «Instalar mesmo assim»",
+    off1: "Abra a Play Store, toque na sua foto de perfil e escolha «Play Protect».",
+    off2: "Toque na roda dentada no canto superior direito e desative «Analisar apps com o Play Protect».",
+    off3: "Volte a abrir o voxwrist.apk transferido e instale-o.",
+    off4: "Volte ao Play Protect e ative de novo a análise.",
+    samH: "Samsung: «bloqueada por motivos de segurança»",
+    sam: "É o Bloqueador automático. Abra Definições → Segurança e privacidade → Bloqueador automático, desative-o, instale o VoxWrist e volte a ativá-lo.",
+    sig: "As cópias autênticas estão assinadas com este certificado (SHA-256):",
     restricted: "Se o Android disser «Definição restrita»: abra Definições → Apps → VoxWrist → ⋮ (canto superior direito) → «Permitir definições restritas» e tente de novo.",
     updH: "Atualizações",
     upd: "No VoxWrist, abra Definições → Procurar atualizações. Instalar uma versão nova mantém as definições. Também pode seguir as versões com o Obtainium.",
