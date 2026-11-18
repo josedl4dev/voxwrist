@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VoxWrist</title>
+<meta name="description" content="Listen to the voice notes your Android phone receives on your Zepp OS watch.">
+<link rel="icon" href="icon.svg">
+<style>
+  :root { --bg:#f6faf9; --card:#fff; --ink:#10201f; --muted:#5b6b69; --accent:#1a9e92; --accent-ink:#fff; --line:#dbe7e5; --warn:#8a5a00; --warn-bg:#fff6e0; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#0b1514; --card:#13211f; --ink:#e7f2f0; --muted:#9db0ad; --accent:#2ec4b6; --accent-ink:#06201d; --line:#22312f; --warn:#f3c56b; --warn-bg:#2b2310; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 640px; margin: 0 auto; padding: 24px 16px 48px; }
+  header { display:flex; gap:16px; align-items:center; margin: 8px 0 20px; }
+  header img { width:64px; height:64px; }
+  h1 { margin:0; font-size:28px; }
+  .tag { margin:2px 0 0; color:var(--muted); }
+  .lang { margin-left:auto; align-self:flex-start; }
+  select { font:inherit; padding:4px 8px; border-radius:8px; border:1px solid var(--line); background:var(--card); color:var(--ink); }
+  .cta { display:block; text-align:center; background:var(--accent); color:var(--accent-ink); text-decoration:none; font-weight:600; font-size:18px; padding:14px; border-radius:14px; }
+  .small { color:var(--muted); font-size:14px; text-align:center; margin:8px 0 24px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:16px 18px; margin:14px 0; }
+  h2 { font-size:19px; margin:0 0 8px; }
+  ol { margin:0; padding-left:22px; } li { margin:6px 0; }
+  .note { background:var(--warn-bg); color:var(--warn); border-radius:12px; padding:10px 14px; font-size:15px; margin-top:10px; }
+  footer { color:var(--muted); font-size:14px; margin-top:28px; }
+  a { color:var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <img src="icon.svg" alt="">
+    <div><h1>VoxWrist</h1><p class="tag" data-t="tag"></p></div>
+    <div class="lang"><select id="lang" aria-label="Language">
+      <option value="en">English</option><option value="es">Español</option><option value="fr">Français</option><option value="pt">Português</option>
+    </select></div>
+  </header>
+
+  <a class="cta" href="https://github.com/josedl4dev/voxwrist/releases/latest/download/voxwrist.apk" data-t="download"></a>
+  <p class="small"><span data-t="req"></span> · <a href="https://github.com/josedl4dev/voxwrist/releases" data-t="versions"></a></p>
+
+  <section class="card"><h2 data-t="whatH"></h2><p data-t="what" style="margin:0"></p></section>
+
+  <section class="card">
+    <h2 data-t="installH"></h2>
+    <ol><li data-t="i1"></li><li data-t="i2"></li><li data-t="i3"></li><li data-t="i4"></li></ol>
+    <div class="note" data-t="restricted"></div>
+  </section>
+
+  <section class="card"><h2 data-t="updH"></h2><p data-t="upd" style="margin:0"></p></section>
+
+  <section class="card"><h2 data-t="privH"></h2><p style="margin:0"><span data-t="priv"></span> <a href="privacy.html" data-t="privLink"></a></p></section>
+
+  <footer><p data-t="legal"></p><p>© 2026 josedl4dev · <a href="mailto:josedl4dev@gmail.com">josedl4dev@gmail.com</a></p></footer>
+</main>
+<script>
+const T = {
+  en: {
+    tag: "Your phone’s voice notes, on your Zepp watch",
+    download: "Download for Android",
+    req: "Android 11 or later · free",
+    versions: "All versions",
+    whatH: "What it does",
+    what: "VoxWrist finds the voice notes your phone receives in WhatsApp and sends the latest ones to your Zepp OS watch. See who sent each one and listen on the watch speaker, even with the phone locked, or play it on the phone or its earbuds.",
+    installH: "Install in 4 steps",
+    i1: "Tap “Download for Android” on your phone and open the file when it finishes.",
+    i2: "If Android asks, allow your browser to install apps, then tap Install.",
+    i3: "Open VoxWrist and follow the setup: choose the voice-notes folder, allow sender names and turn on “Connect watch”.",
+    i4: "On the watch, install VoxWrist from the Zepp app’s store and enter the 6-digit code the phone shows.",
+    restricted: "If Android says “Restricted setting” when you allow sender names: open Settings → Apps → VoxWrist → ⋮ (top right) → “Allow restricted settings”, then try again.",
+    updH: "Updates",
+    upd: "In VoxWrist, open Settings → Check for updates. Installing a new version keeps your settings. You can also follow the releases with Obtainium.",
+    privH: "Privacy",
+    priv: "Nothing is uploaded: your notes and names stay on your phone and your paired watch.",
+    privLink: "Privacy policy",
+    legal: "VoxWrist is an independent app. It is not affiliated with or endorsed by WhatsApp, Meta or Zepp. WhatsApp is a trademark of Meta Platforms, Inc."
+  },
+  es: {
+    tag: "Las notas de voz de tu móvil, en tu reloj Zepp",
+    download: "Descargar para Android",
+    req: "Android 11 o posterior · gratis",
+    versions: "Todas las versiones",
+    whatH: "Qué hace",
+    what: "VoxWrist encuentra las notas de voz que tu móvil recibe en WhatsApp y envía las últimas a tu reloj Zepp OS. Ves quién envía cada una y la escuchas en el altavoz del reloj, aunque el móvil esté bloqueado, o en el móvil o sus auriculares.",
+    installH: "Instálala en 4 pasos",
+    i1: "Toca «Descargar para Android» en el móvil y abre el archivo cuando termine.",
+    i2: "Si Android lo pide, permite que el navegador instale apps y toca Instalar.",
+    i3: "Abre VoxWrist y sigue la configuración: elige la carpeta de notas de voz, permite los nombres de quien envía y activa «Conectar reloj».",
+    i4: "En el reloj, instala VoxWrist desde la tienda de la app Zepp e introduce el código de 6 dígitos que muestra el móvil.",
+    restricted: "Si Android dice «Ajuste restringido» al permitir los nombres: abre Ajustes → Aplicaciones → VoxWrist → ⋮ (arriba a la derecha) → «Permitir ajustes restringidos» y vuelve a intentarlo.",
+    updH: "Actualizaciones",
+    upd: "En VoxWrist, abre Ajustes → Buscar actualizaciones. Instalar una versión nueva mantiene tus ajustes. También puedes seguir las versiones con Obtainium.",
+    privH: "Privacidad",
+    priv: "No se sube nada: tus notas y los nombres se quedan en tu móvil y en tu reloj emparejado.",
+    privLink: "Política de privacidad",
+    legal: "VoxWrist es una app independiente. No está afiliada ni respaldada por WhatsApp, Meta ni Zepp. WhatsApp es una marca de Meta Platforms, Inc."
+  },
+  fr: {
+    tag: "Les messages vocaux de votre téléphone, sur votre montre Zepp",
+    download: "Télécharger pour Android",
+    req: "Android 11 ou plus récent · gratuit",
+    versions: "Toutes les versions",
+    whatH: "Ce qu’elle fait",
+    what: "VoxWrist trouve les messages vocaux WhatsApp reçus par votre téléphone et envoie les derniers à votre montre Zepp OS. Voyez qui les a envoyés et écoutez-les sur le haut-parleur de la montre, même téléphone verrouillé, ou sur le téléphone et ses écouteurs.",
+    installH: "Installation en 4 étapes",
+    i1: "Touchez « Télécharger pour Android » sur le téléphone et ouvrez le fichier à la fin du téléchargement.",
+    i2: "Si Android le demande, autorisez le navigateur à installer des apps, puis touchez Installer.",
+    i3: "Ouvrez VoxWrist et suivez la configuration : choisissez le dossier des messages vocaux, autorisez les noms des expéditeurs et activez « Connecter la montre ».",
+    i4: "Sur la montre, installez VoxWrist depuis la boutique de l’app Zepp et saisissez le code à 6 chiffres affiché sur le téléphone.",
+    restricted: "Si Android affiche « Paramètre restreint » : ouvrez Paramètres → Applications → VoxWrist → ⋮ (en haut à droite) → « Autoriser les paramètres restreints », puis réessayez.",
+    updH: "Mises à jour",
+    upd: "Dans VoxWrist, ouvrez Réglages → Rechercher des mises à jour. Une nouvelle version garde vos réglages. Vous pouvez aussi suivre les versions avec Obtainium.",
+    privH: "Confidentialité",
+    priv: "Rien n’est envoyé sur Internet : vos messages et les noms restent sur votre téléphone et votre montre appairée.",
+    privLink: "Politique de confidentialité",
+    legal: "VoxWrist est une app indépendante, sans lien avec WhatsApp, Meta ou Zepp. WhatsApp est une marque de Meta Platforms, Inc."
+  },
+  pt: {
+    tag: "As mensagens de voz do seu telemóvel, no seu relógio Zepp",
+    download: "Transferir para Android",
+    req: "Android 11 ou superior · grátis",
+    versions: "Todas as versões",
+    whatH: "O que faz",
+    what: "O VoxWrist encontra as mensagens de voz que o seu telemóvel recebe no WhatsApp e envia as mais recentes para o relógio Zepp OS. Veja quem enviou cada uma e ouça no altifalante do relógio, mesmo com o telemóvel bloqueado, ou no telemóvel e nos auriculares.",
+    installH: "Instalar em 4 passos",
+    i1: "Toque em «Transferir para Android» no telemóvel e abra o ficheiro quando terminar.",
+    i2: "Se o Android pedir, permita que o navegador instale apps e toque em Instalar.",
+    i3: "Abra o VoxWrist e siga a configuração: escolha a pasta das mensagens de voz, permita os nomes de quem envia e ative «Ligar relógio».",
+    i4: "No relógio, instale o VoxWrist pela loja da app Zepp e introduza o código de 6 dígitos que o telemóvel mostra.",
+    restricted: "Se o Android disser «Definição restrita»: abra Definições → Apps → VoxWrist → ⋮ (canto superior direito) → «Permitir definições restritas» e tente de novo.",
+    updH: "Atualizações",
+    upd: "No VoxWrist, abra Definições → Procurar atualizações. Instalar uma versão nova mantém as definições. Também pode seguir as versões com o Obtainium.",
+    privH: "Privacidade",
+    priv: "Nada é enviado para a Internet: as mensagens e os nomes ficam no telemóvel e no relógio emparelhado.",
+    privLink: "Política de privacidade",
+    legal: "O VoxWrist é uma app independente, sem ligação ao WhatsApp, à Meta ou à Zepp. WhatsApp é uma marca da Meta Platforms, Inc."
+  }
+};
+const sel = document.getElementById('lang');
+function apply(lang) {
+  const t = T[lang] || T.en;
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-t]').forEach((el) => { el.textContent = t[el.dataset.t]; });
+  sel.value = lang;
+}
+let start = (navigator.language || 'en').slice(0, 2);
+try { start = localStorage.getItem('lang') || start; } catch (e) {}
+apply(T[start] ? start : 'en');
+sel.addEventListener('change', () => { apply(sel.value); try { localStorage.setItem('lang', sel.value); } catch (e) {} });
+</script>
+</body>
+</html>
