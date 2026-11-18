@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>VoxWrist</title>
 <meta name="description" content="Listen to the voice notes your Android phone receives on your Zepp OS watch.">
-<link rel="icon" href="icon.svg">
+<link rel="icon" href="icon.png">
 <style>
   :root { --bg:#f6faf9; --card:#fff; --ink:#10201f; --muted:#5b6b69; --accent:#1a9e92; --accent-ink:#fff; --line:#dbe7e5; --warn:#8a5a00; --warn-bg:#fff6e0; }
   @media (prefers-color-scheme: dark) { :root { --bg:#0b1514; --card:#13211f; --ink:#e7f2f0; --muted:#9db0ad; --accent:#2ec4b6; --accent-ink:#06201d; --line:#22312f; --warn:#f3c56b; --warn-bg:#2b2310; } }
@@ -31,7 +31,7 @@
 <body>
 <main>
   <header>
-    <img src="icon.svg" alt="">
+    <img src="icon.png" alt="">
     <div><h1>VoxWrist</h1><p class="tag" data-t="tag"></p></div>
     <div class="lang"><select id="lang" aria-label="Language">
       <option value="en">English</option><option value="es">Español</option><option value="fr">Français</option><option value="pt">Português</option>
@@ -46,6 +46,7 @@
   <section class="card">
     <h2 data-t="installH"></h2>
     <ol><li data-t="i1"></li><li data-t="i2"></li><li data-t="i3"></li><li data-t="i4"></li></ol>
+    <div class="note" data-t="blocked"></div>
     <div class="note" data-t="restricted"></div>
   </section>
 
@@ -69,6 +70,7 @@ const T = {
     i2: "If Android asks, allow your browser to install apps, then tap Install.",
     i3: "Open VoxWrist and follow the setup: choose the voice-notes folder, allow sender names and turn on “Connect watch”.",
     i4: "On the watch, install VoxWrist from the Zepp app’s store and enter the 6-digit code the phone shows.",
+    blocked: "If a Samsung phone says the app can’t be installed for security reasons, Auto Blocker is on: open Settings → Security and privacy → Auto Blocker, turn it off, install VoxWrist and turn it back on. If Google Play Protect warns about an unknown app, tap “More details” → “Install anyway”.",
     restricted: "If Android says “Restricted setting” when you allow sender names: open Settings → Apps → VoxWrist → ⋮ (top right) → “Allow restricted settings”, then try again.",
     updH: "Updates",
     upd: "In VoxWrist, open Settings → Check for updates. Installing a new version keeps your settings. You can also follow the releases with Obtainium.",
@@ -89,6 +91,7 @@ const T = {
     i2: "Si Android lo pide, permite que el navegador instale apps y toca Instalar.",
     i3: "Abre VoxWrist y sigue la configuración: elige la carpeta de notas de voz, permite los nombres de quien envía y activa «Conectar reloj».",
     i4: "En el reloj, instala VoxWrist desde la tienda de la app Zepp e introduce el código de 6 dígitos que muestra el móvil.",
+    blocked: "Si un móvil Samsung dice que por seguridad no se puede instalar, está activo el Bloqueador automático: abre Ajustes → Seguridad y privacidad → Bloqueador automático, desactívalo, instala VoxWrist y vuelve a activarlo. Si Google Play Protect avisa de una app desconocida, toca «Más detalles» → «Instalar de todos modos».",
     restricted: "Si Android dice «Ajuste restringido» al permitir los nombres: abre Ajustes → Aplicaciones → VoxWrist → ⋮ (arriba a la derecha) → «Permitir ajustes restringidos» y vuelve a intentarlo.",
     updH: "Actualizaciones",
     upd: "En VoxWrist, abre Ajustes → Buscar actualizaciones. Instalar una versión nueva mantiene tus ajustes. También puedes seguir las versiones con Obtainium.",
@@ -109,6 +112,7 @@ const T = {
     i2: "Si Android le demande, autorisez le navigateur à installer des apps, puis touchez Installer.",
     i3: "Ouvrez VoxWrist et suivez la configuration : choisissez le dossier des messages vocaux, autorisez les noms des expéditeurs et activez « Connecter la montre ».",
     i4: "Sur la montre, installez VoxWrist depuis la boutique de l’app Zepp et saisissez le code à 6 chiffres affiché sur le téléphone.",
+    blocked: "Si un téléphone Samsung indique que l’installation est bloquée pour des raisons de sécurité, le Bloqueur automatique est activé : ouvrez Paramètres → Sécurité et confidentialité → Bloqueur automatique, désactivez-le, installez VoxWrist puis réactivez-le. Si Google Play Protect signale une app inconnue, touchez « Plus de détails » → « Installer quand même ».",
     restricted: "Si Android affiche « Paramètre restreint » : ouvrez Paramètres → Applications → VoxWrist → ⋮ (en haut à droite) → « Autoriser les paramètres restreints », puis réessayez.",
     updH: "Mises à jour",
     upd: "Dans VoxWrist, ouvrez Réglages → Rechercher des mises à jour. Une nouvelle version garde vos réglages. Vous pouvez aussi suivre les versions avec Obtainium.",
@@ -129,6 +133,7 @@ const T = {
     i2: "Se o Android pedir, permita que o navegador instale apps e toque em Instalar.",
     i3: "Abra o VoxWrist e siga a configuração: escolha a pasta das mensagens de voz, permita os nomes de quem envia e ative «Ligar relógio».",
     i4: "No relógio, instale o VoxWrist pela loja da app Zepp e introduza o código de 6 dígitos que o telemóvel mostra.",
+    blocked: "Se um telemóvel Samsung disser que a instalação foi bloqueada por segurança, o Bloqueador automático está ativo: abra Definições → Segurança e privacidade → Bloqueador automático, desative-o, instale o VoxWrist e volte a ativá-lo. Se o Google Play Protect avisar de uma app desconhecida, toque em «Mais detalhes» → «Instalar mesmo assim».",
     restricted: "Se o Android disser «Definição restrita»: abra Definições → Apps → VoxWrist → ⋮ (canto superior direito) → «Permitir definições restritas» e tente de novo.",
     updH: "Atualizações",
     upd: "No VoxWrist, abra Definições → Procurar atualizações. Instalar uma versão nova mantém as definições. Também pode seguir as versões com o Obtainium.",
